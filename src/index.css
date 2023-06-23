@@ -12,4 +12,7 @@ body,
 
 * {
     font-family: "Inter", sans-serif !important;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
