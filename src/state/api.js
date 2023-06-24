@@ -7,7 +7,14 @@ export const api = createApi({
     }),
 
     reducerPath: "adminApi",
-    tagTypes: ["User", "Products", "Customers"],
+    tagTypes: [
+        "User",
+        "Products",
+        "Customers",
+        "Transactions",
+        "Geography",
+        "Sales",
+    ],
     endpoints: (build) => ({
         getUser: build.query({
             query: (id) => `api/v1/users/${id}`,
@@ -21,8 +28,30 @@ export const api = createApi({
             query: () => `api/v1/users`,
             providesTags: ["Customers"],
         }),
+        getTransactions: build.query({
+            query: ({ page, pageSize, sort, search }) => ({
+                url: "api/v1/transactions",
+                method: "GET",
+                params: { page, pageSize, sort, search },
+            }),
+            providesTags: ["Transactions"],
+        }),
+        getGeography: build.query({
+            query: () => `api/v1/client`,
+            providesTags: ["Geography"],
+        }),
+        getSales: build.query({
+            query: () => `api/v1/sales`,
+            providesTags: ["Sales"],
+        }),
     }),
 });
 
-export const { useGetUserQuery, useGetProductsQuery, useGetCustomersQuery } =
-    api;
+export const {
+    useGetUserQuery,
+    useGetProductsQuery,
+    useGetCustomersQuery,
+    useGetTransactionsQuery,
+    useGetGeographyQuery,
+    useGetSalesQuery,
+} = api;

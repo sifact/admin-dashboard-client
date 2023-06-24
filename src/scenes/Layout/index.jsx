@@ -11,8 +11,6 @@ const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const userId = useSelector((state) => state.global.userId);
     const { data } = useGetUserQuery(userId);
-    console.log("🚀 ~ file: index.jsx:14 ~ Layout ~ data:", data);
-    console.log(import.meta.env.VITE_APP_BASE_URL);
 
     return (
         <Box

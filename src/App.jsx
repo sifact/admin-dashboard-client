@@ -10,6 +10,9 @@ import Dashboard from "./scenes/Dashboard";
 import Layout from "./scenes/Layout";
 import Products from "./scenes/Products/Products";
 import Customers from "./scenes/Customers";
+import Transactions from "./scenes/Transactions";
+import Geography from "./scenes/Geography/geography";
+import Overview from "./scenes/Overview/overview";
 function App() {
     const mode = useSelector((state) => state.global.mode);
     const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
@@ -27,13 +30,13 @@ function App() {
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/products" element={<Products />} />
                             <Route path="/customers" element={<Customers />} />
+                            <Route
+                                path="/transactions"
+                                element={<Transactions />}
+                            />
+                            <Route path="/geography" element={<Geography />} />
+                            <Route path="/overview" element={<Overview />} />
                             {/*
-                        <Route
-                            path="/transactions"
-                            element={<Transactions />}
-                        />
-                        <Route path="/geography" element={<Geography />} />
-                        <Route path="/overview" element={<Overview />} />
                         <Route path="/daily" element={<Daily />} />
                         <Route path="/monthly" element={<Monthly />} />
                         <Route path="/breakdown" element={<Breakdown />} />
